@@ -87,7 +87,7 @@ Tất cả những điều trong **Danh sách kiểm tra hiệu suất Front-End
  * 🛠 [Checkbot browser extension - Checks for web performance best practices](https://www.checkbot.io/)
  * 🛠 [Yellow Lab Tools | Online test to help speeding up heavy web pages](https://yellowlab.tools/)
 
-### References
+### Tài liệu tham khảo
 
  * 📹 [The Cost Of JavaScript - YouTube](https://www.youtube.com/watch?v=_bzqF05xsC4) ([text version](https://medium.com/@addyosmani/the-cost-of-javascript-in-2018-7d8950fbb5d4))
  * [AddyOsmani.com - Start Performance Budgeting](https://addyosmani.com/blog/performance-budgets/)
@@ -109,22 +109,22 @@ Tất cả những điều trong **Danh sách kiểm tra hiệu suất Front-End
 
 - [ ] **Minified HTML:** ![medium] HTML code cần minified, các comment, khoảng trắng và các dòng mới phải loại bỏ khỏi các file trên bản production.
 
-    *Why:*
+    *Tại sao:*
     > Loại bỏ tất cả các khoảng trắng, các comment và xuống dòng không cần thiết sẽ giảm kích thước HTML của bạn và tăng tốc độ thời gian load trang của bạn và chắc chắn làm giảm bớt việc tải xuống cho người dùng của bạn.
 
-    *How:*
+    *Cách làm:*
     > Hầu hết các framework đều có các plugin để tối giản hoá các trang web. Có một loạt NPM module mà có thể thực hiện công việc đó một các tự động.
 
     * 🛠 [HTML minifier | Minify Code](http://minifycode.com/html-minifier/)
     * 🛠 [Online HTML Compressor](http://refresh-sf.com)
     * 📖 [Experimenting with HTML minifier — Perfection Kills](http://perfectionkills.com/experimenting-with-html-minifier/#use_short_doctype)
 
-- [ ] **Remove unnecessary comments:** ![low] Đảm bảo rằng các comment được loại bỏ khỏi trang của bạn.
+- [ ] **Loại bỏ các comment không cần thiết:** ![low] Đảm bảo rằng các comment được loại bỏ khỏi trang của bạn.
 
-    *Why:*
-    > Các comment không thực sự hữu dụng đối với người dùng và nên được loại bỏ khỏi những file trên production. Một trường hợp mà bạn muốn giữ lại các comments nguồn gốc cho một thư viện.
+    *Táiao:*
+    > Các comment không thực sự hữu dụng đối với người dùng và nên được loại bỏ khỏi những file trên production. Một trường hợp mà bạn muốn giữ lại các comment nguồn gốc cho một thư viện.
 
-    *How:*
+    *Cách làm:*
     > ⁃ Hầu hết là các comment có thể bị loại bỏ thông qua việc sử dụng plugin minify HTML.
 
  * 🛠 [remove-html-comments - npm](https://www.npmjs.com/package/remove-html-comments)
@@ -143,15 +143,15 @@ Tất cả những điều trong **Danh sách kiểm tra hiệu suất Front-End
     </script>
     ```
 
-    *Why:*
+    *Tại sao:*
     > Các thuộc tính type đã không còn cần thiết, HTML5 đã ngầm hiểu text/css và text/javascript là giá trị mặc định. Phần code không được sử dụng nên được loại bỏ vì nó làm trang nặng hơn khi không được sử dụng bởi website hoặc ứng dụng của bạn.
 
-    *How:*
+    *Cách làm:*
     > ⁃ Chắc chắn là tất cả các thẻ <link> và <script> của bạn không có bất kì thuộc tính type nào.
 
     * 📖 [The Script Tag | CSS-Tricks](https://css-tricks.com/the-script-tag/)
    
-- [ ] **Place CSS tags always before JavaScript tags:** ![high] Chắc chắn là phần CSS của bạn luôn được tải trước phần code Javascript.
+- [ ] **Luôn đặt thẻ CSS trước thẻ JavaScript:** ![high] Chắc chắn là phần CSS của bạn luôn được tải trước phần code Javascript.
 
     ```html
     <!-- Not recommended -->
@@ -173,7 +173,7 @@ Tất cả những điều trong **Danh sách kiểm tra hiệu suất Front-End
 
     * 📖 [Ordering your styles and scripts for pagespeed](https://varvy.com/pagespeed/style-script-order.html)
 
-- [ ] **Minimize the number of iframes:** ![high] Chỉ sử dụng iframe nếu bạn không có bất cứ một kỹ thuật nào khác. Cố gắng tránh việc sử dụng jframe nhiều nhất có thể.
+- [ ] **Giảm số lượng các iframe:** ![high] Chỉ sử dụng iframe nếu bạn không có bất cứ một kỹ thuật nào khác. Cố gắng tránh việc sử dụng jframe nhiều nhất có thể.
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -228,14 +228,14 @@ Tất cả những điều trong **Danh sách kiểm tra hiệu suất Front-End
     > Các file CSS files có thể block trang web load và delay quá trình render của trang. Sử dụng preload có thể thực sự load các file CSS trước khi browser bắt đầu hiển thị nội dung của trang.
 
     *How:*
-    > ⁃ You need to add the `rel` attribute with the `preload` value and add `as="style"` on the `<link>` element.
+    > ⁃ Bạn cần thêm thuộc tính `rel` với giá trị `preload` và thêm `as="style"` vào phần tử  `<link>`.
 
     * 🛠 [loadCSS by filament group](https://github.com/filamentgroup/loadCSS)
     * 📖 [Example of preload CSS using loadCSS](https://gist.github.com/thedaviddias/c24763b82b9991e53928e66a0bafc9bf)
     * 📖 [Preloading content with rel="preload"](https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content)
     * 📖 [Preload: What Is It Good For? — Smashing Magazine](https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/)
 
-- [ ] **Length of CSS classes:** ![low] Độ dài của các class của bạn có thể có một ảnh hưởng (nhẹ) lên các file HTML và CSS của bạn.
+- [ ] **Độ dài của các class CSS:** ![low] Độ dài của các class của bạn có thể có một ảnh hưởng (nhẹ) lên các file HTML và CSS của bạn.
 
     *Why:*
     > Nếu bạn đang sử dụng BEM, trong một vài class bạn có thể kết thúc với các class có nhiều ký tự hơn cần thiết. Việc chọn tên và namespace khôn ngoan luôn là điều quan trọng.
@@ -245,7 +245,7 @@ Tất cả những điều trong **Danh sách kiểm tra hiệu suất Front-End
 
     * 🛠 [long vs short class · jsPerf](https://jsperf.com/long-vs-short-class)
 
-- [ ] **Unused CSS:** ![medium] Loại bỏ các selector CSS không sử dụng.
+- [ ] **CSS không sử dụng:** ![medium] Loại bỏ các selector CSS không sử dụng.
 
     *Why:*
     > Việc loại bỏ các CSS selector không sử dụng có thể làm giảm kích thước các file của bạn và tăng tốc độ load các tài nguyên của bạn.
@@ -304,7 +304,7 @@ Tất cả những điều trong **Danh sách kiểm tra hiệu suất Front-End
 
 * 📖 [A Book Apart, Webfont Handbook](https://abookapart.com/products/webfont-handbook)
 
-- [ ] **Webfont formats:** ![medium] Bạn đang sử dụng WOFF2 trên project web hay ứng dụng của bạn.
+- [ ] **Định dạng Webfont:** ![medium] Bạn đang sử dụng WOFF2 trên project web hay ứng dụng của bạn.
 
 
     *Why:*
@@ -350,13 +350,13 @@ Tất cả những điều trong **Danh sách kiểm tra hiệu suất Front-End
 
 **[⬆ back to top](#table-of-contents)**
 
-## Images
+## Hình Ảnh
 
 ![images]
 
  * 📖 [Image Bytes in 2018](https://httparchive.org/reports/page-weight#bytesImg)
 
-* [ ] **Images optimization:** ![high]  Các hình ảnh của bạn phải được tối ưu, được nén mà không ảnh hưởng trực tiếp tới user.
+* [ ] **Tối ưu hóa hình ảnh:** ![high]  Các hình ảnh của bạn phải được tối ưu, được nén mà không ảnh hưởng trực tiếp tới user.
 
     *Why:*
     > Việc tối ưu hóa các hình ảnh sẽ tải nhanh hơn trên trình duyệt của bạn và tiêu thụ ít dữ liệu hơn
@@ -375,7 +375,7 @@ Tất cả những điều trong **Danh sách kiểm tra hiệu suất Front-End
     * 🛠 [SVGOMG - Optimize SVG vector graphics files](https://jakearchibald.github.io/svgomg/)
 
 
-* [ ] **Images format:** ![high] Chọn định dạng hình ảnh của bạn một cách thích hợp.
+* [ ] **Định dạng hình ảnh:** ![high] Chọn định dạng hình ảnh của bạn một cách thích hợp.
 
     *Why:*
     > Để đảm bảo ảnh của bạn không làm chậm website của bạn, chọn định dạng sẽ được trao đổi đến ảnh của bạn.Nếu nó là một ảnh, JPEG thì hầu hết phù hợp thời gian hơn PNG hoặc GIF. Nhưng đừng quên tìm kiếm định dạng nex-gen mà có thể giảm kích thước các file của bạn. Mỗi định dạng ảnh có ưu và nhược điểm, việc biết điều này là quan trọng để đưa ra sự lựa chọn phù hợp.
@@ -389,17 +389,17 @@ Tất cả những điều trong **Danh sách kiểm tra hiệu suất Front-End
     * 📖 [PNG8 - The Clear Winner — SitePoint](https://www.sitepoint.com/png8-the-clear-winner/)
     * 📖 [8-bit vs 16-bit - What Color Depth You Should Use And Why It Matters - DIY Photography](https://www.diyphotography.net/8-bit-vs-16-bit-color-depth-use-matters/)
 
-- [ ] **Use vector image vs raster/bitmap:** ![medium] Thay thế việc sử dụng hình ảnh vector cho các hình ảnh dạng bitmap (khi có thể).
+- [ ] **Sử dụng các hình ảnh vector thay cho raster/bitmap:** ![medium] Thay thế việc sử dụng hình ảnh vector cho các hình ảnh dạng bitmap (khi có thể).
 
     *Why:*
     > Các ảnh vector (SVG) có xu hướng nhỏ hơn các ảnh thông thường và SVG đã có khả năng responsive, co dãn một cách hoàn hảo. Các hình ảnh này hoàn toàn có thể tạo và chỉnh sửa bằng CSS.
 
-* [ ] **Images dimensions:** ![medium] Thiết lập các thuộc tính width và height trên thẻ <img> nếu kích thước ảnh được render ra là biết.
+* [ ] **Kích thước ảnh:** ![medium] Thiết lập các thuộc tính width và height trên thẻ <img> nếu kích thước ảnh được render ra là biết.
 
     *Why:*
     > Nếu chiều cao và chiều rộng được thiết lập, không gian cần thiết cho hình ảnh được khoảng trắng được yêu cầu được dành riêng khi page được load. Tuy nhiên, không có các thuộc tính này, trình duyệt không biết kích thước của ảnh và có thể không để dành khoảng không gian cho nó.Hiệu ứng về layout trang sẽ thay đổi trong khi load (trong khi ảnh load).
 
-* [ ] **Avoid using Base64 images:** ![medium] Bạn có thể convert các ảnh nhỏ sang dạng base4 nhưng đó không phải là cách làm tốt nhất.
+* [ ] **Tránh sử dụng hình ảnh Base64:** ![medium] Bạn có thể convert các ảnh nhỏ sang dạng base4 nhưng đó không phải là cách làm tốt nhất.
 
     * 📖 [Base64 Encoding & Performance, Part 1 and 2 by Harry Roberts](https://csswizardry.com/2017/02/base64-encoding-and-performance/)
     * 📖 [A closer look at Base64 image performance – The Page Not Found Blog](http://www.andygup.net/a-closer-look-at-base64-image-performance/)
@@ -483,11 +483,11 @@ Tất cả những điều trong **Danh sách kiểm tra hiệu suất Front-End
 * [ ] **Optimized and updated JS libraries:** ![medium] Tất cả các thư viện JavaScript đã sử dụng trong dự án của bạn là cần thiết (prefer Vanilla JavaScript cho các tính năng đơn giản), được cập nhật phiên bản mới nhất của chúng và không đặt Javascript với nhiều hàm không cần thiết.
 
     *Why:*
-    > Most of the time, new versions come with optimization and security fix. You should use the most optimized code to speed up your project and ensure that you'll not slow down your website or app without outdated plugin.
+    > Hầu hết thời gian, các phiên bản mới đều được tối ưu hơn và sửa các lỗi bảo mật. Bạn nên sử dụng hầu hết phần code đã được tối ưu cho tốc độ tăng lên vào project của bạn và đảm bảo bạn sẽ không làm website hay ứng dụng bị chậm đi bởi các plugin quá hạn.
 
     *How:*
-    > If your project use NPM packages, [npm-check](https://www.npmjs.com/package/npm-check) is a pretty interesting library to upgrade / update your libraries.
-    > [Greenkeeper](https://greenkeeper.io/) can automatically look for your dependencies and suggest an update evey time a new version is out.
+    > Nếu dự án của bạn sử dụng các gói NPM, [npm-check](https://www.npmjs.com/package/npm-check) là một thư viện khá thú vị để nâng cấp / cập nhật thư viện của bạn.
+    > [Greenkeeper](https://greenkeeper.io/) có thể tự động tìm kiếm các phụ thuộc của bạn và đề xuất thời gian cập nhật mọi phiên bản mới
 
     * 📖 [You may not need jQuery](http://youmightnotneedjquery.com/)
     * 📖 [Vanilla JavaScript for building powerful web applications](https://plainjs.com/)
@@ -498,7 +498,7 @@ Tất cả những điều trong **Danh sách kiểm tra hiệu suất Front-End
     > Bạn có thể bị cám dỗ sử dụng một trong 745 000 các package bạn có thể tìm trên npm, nhưng bạn cần phải chọn package tốt nhất cho nhu cầu của bạn. Ví dụ, MomentJS là một thư viện tuyệt vời nhưng với rất nhiều phương thức bạn không bao giờ có thể sử dụng. Với 2kB và 16.4kB gz cho Moment.  
 
     *How:*
-    > Always compare and choose the best and lighter library for your needs. You can also use tools like [npm trends](http://www.npmtrends.com/) to compare NPM package downloads counts or [Bundlephobia](https://bundlephobia.com/) to know the size of your dependencies.
+    > Luôn so sánh và chọn thư viện tốt nhất và nhẹ hơn cho nhu cầu của bạn. Bạn cũng có thể sử dụng các công cụ như  [npm trends](http://www.npmtrends.com/) để so sánh số lượt tải xuống gói NPM hoặc [Bundlephobia](https://bundlephobia.com/) để biết kích thước của các phụ thuộc của bạn.
 
     * 🛠 [ai/size-limit: Prevent JS libraries bloat. If you accidentally add a massive dependency, Size Limit will throw an error.](https://github.com/ai/size-limit)
     * 🛠 [webpack-bundle-analyzer - npm](https://www.npmjs.com/package/webpack-bundle-analyzer)
@@ -576,10 +576,10 @@ Tất cả những điều trong **Danh sách kiểm tra hiệu suất Front-End
 * [ ] **Kích thước Cookie:** ![medium] Nếu bạn đang sử dụng cookies, hãy chắc chắn rằng mỗi cookie không vượt quá 4096 byte và tên miền của bạn không có nhiều hơn 20 cookie.
 
     *Why:*
-    > Cookies are exchanged in the HTTP headers between web servers and browsers. It's important to keep the size of cookies as low as possible to minimize the impact on the user's response time.
-
+    > Cookie được trao đổi trong phần header HTTP giữa các máy chủ web và trình duyệt. Điều quan trọng là phải giữ kích thước cookie càng thấp càng tốt để giảm thiểu tác động đến thời gian phản hồi của người dùng.
+    
     *How:*
-    > Eliminate unnecessary cookies.
+    > Loại bỏ các cookie không cần thiết.
 
     * 📖 [Cookie specification: RFC 6265](https://tools.ietf.org/html/rfc6265)
     * 📖 [Cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)
